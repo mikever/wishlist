@@ -10,7 +10,7 @@ export class AppComponent {
   items = [
     new WishItem('To Learn Angular'),
     new WishItem('Get Coffee', true),
-    new WishItem('Find gras that cuts itself'),
+    new WishItem('Find grass that cuts itself'),
   ]
   title = 'wishlist'
 }
