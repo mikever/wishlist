@@ -12,10 +12,18 @@ export class AppComponent {
     new WishItem('Get Coffee', true),
     new WishItem('Find grass that cuts itself'),
   ]
+
+  newWishText = ''
+
   title = 'wishlist'
+
+  addNewWish() {
+    this.items.push(new WishItem(this.newWishText))
+    this.newWishText = ''
+  }
 
   toggleItem(item: WishItem) {
     item.isComplete = !item.isComplete
-    console.log(item)
+    // ~~~ console.log(item)
   }
 }
