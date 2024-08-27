@@ -7,7 +7,7 @@ import { WishItem } from 'shared/models/wishItem'
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  // TEST: Replace test data
+  // TEST:
   items: WishItem[] = [
     new WishItem('To Learn Angular'),
     new WishItem('Get Coffee', true),
@@ -20,22 +20,21 @@ export class AppComponent {
 
   title = 'wishlist'
 
-  visibleItems: WishItem[] = this.items
+  get visibleItems(): WishItem[] {
+    let value = this.listFilter
+    if (value === '0') {
+      return this.items
+    } else if (value === '1') {
+      return this.items.filter((item) => !item.isComplete)
+    } else {
+      return this.items.filter((item) => item.isComplete)
+    }
+  }
 
   // methods
   addNewWish() {
     this.items.push(new WishItem(this.newWishText))
     this.newWishText = ''
-  }
-
-  filterChanged(value: String) {
-    if (value === '0') {
-      this.visibleItems = this.items
-    } else if (value === '1') {
-      this.visibleItems = this.items.filter((item) => !item.isComplete)
-    } else {
-      this.visibleItems = this.items.filter((item) => item.isComplete)
-    }
   }
 
   toggleItem(item: WishItem) {
