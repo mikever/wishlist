@@ -21,9 +21,9 @@ export class WishFilterComponent {
     this.filter.emit(filters[0])
   }
 
-  listFilter: any = '0'
+  listFilter: string = '0'
 
-  changeFilter(value: any) {
+  changeFilter(value: number) {
     this.filter.emit(filters[value])
   }
 }

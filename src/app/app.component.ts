@@ -15,8 +15,4 @@ export class AppComponent {
   ]
 
   filter: any = () => {}
-
-  get visibleItems(): WishItem[] {
-    return this.items.filter(this.filter)
-  }
 }
