@@ -17,9 +17,8 @@ export class AppComponent {
 
   constructor() {
     events.listen('removeWish', (wish: any) => {
-      // TODO: remove wish from items
-
-      console.log('~~~ wish: ', wish)
+      let index = this.items.indexOf(wish)
+      this.items.splice(index, 1)
     })
   }
 
