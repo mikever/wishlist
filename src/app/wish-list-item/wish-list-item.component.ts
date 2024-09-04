@@ -11,6 +11,12 @@ export class WishListItemComponent {
   @Input() fullfilled!: boolean
   @Output() fullfilledChange = new EventEmitter<boolean>()
 
+  get cssClasses() {
+    return {
+      'strikeout text-muted': this.fullfilled,
+    }
+  }
+
   toggleFullfilled() {
     this.fullfilled = !this.fullfilled
     this.fullfilledChange.emit(this.fullfilled)
