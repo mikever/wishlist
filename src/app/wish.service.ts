@@ -10,7 +10,7 @@ export class WishService {
 
   private getStandardOptions(): any {
     return {
-      hearder: new HttpHeaders({
+      headers: new HttpHeaders({
         'Content-Type': 'application/json',
       }),
     }
@@ -18,7 +18,6 @@ export class WishService {
 
   getWishes() {
     const options = this.getStandardOptions()
-
     options.params = new HttpParams({
       fromObject: {
         format: 'json',
