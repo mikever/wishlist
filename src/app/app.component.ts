@@ -9,7 +9,7 @@ import { WishService } from './wish.service'
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
-  items!: WishItem[]
+  items: WishItem[] = []
 
   constructor(
     events: EventService,
@@ -22,10 +22,14 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.wishService.getWishes().subscribe((data: any) => {
-      console.log('~~~ data: ', data)
-      this.items = data
-    })
+    this.wishService.getWishes().subscribe(
+      (data: any) => {
+        this.items = data
+      },
+      (error: any) => {
+        alert(error.message)
+      },
+    )
   }
 
   filter: any
