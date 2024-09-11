@@ -16,8 +16,8 @@ export class ContactComponent {
     ]),
   })
 
-  emailValidity(senderEmail: any) {
-    return senderEmail?.invalid && (senderEmail?.dirty || senderEmail?.touched)
+  inputValidity(input: any) {
+    return input?.invalid && (input?.dirty || input?.touched)
   }
 
   submitForm() {
