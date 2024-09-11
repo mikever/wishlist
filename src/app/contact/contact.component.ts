@@ -16,7 +16,7 @@ export class ContactComponent {
     ]),
   })
 
-  inputValidity(input: any) {
+  inputValid(input: any) {
     return input?.invalid && (input?.dirty || input?.touched)
   }
 
