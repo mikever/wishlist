@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { invalidEmailDomain } from './invalidEmailDomain'
 
 @Component({
   selector: 'app-contact',
@@ -9,7 +10,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 export class ContactComponent {
   contactForm = new FormGroup({
     senderName: new FormControl('', [Validators.required]),
-    senderEmail: new FormControl('', [Validators.required, Validators.email]),
+    senderEmail: new FormControl('', [
+      Validators.required,
+      Validators.email,
+      invalidEmailDomain,
+    ]),
     senderMessage: new FormControl('', [
       Validators.required,
       Validators.minLength(10),
@@ -21,6 +26,6 @@ export class ContactComponent {
   }
 
   submitForm() {
-    console.log('~~~ value: ', this.contactForm.valid)
+    console.log('~~~ contactForm.valid: ', this.contactForm.valid)
   }
 }
